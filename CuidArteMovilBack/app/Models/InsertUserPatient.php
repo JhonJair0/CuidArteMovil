@@ -20,7 +20,7 @@ class InsertUserPatient extends Model
 
 
 
-    protected $table = 'users_patient';
+    protected $table = 'users_client';
 
 
 

@@ -40,7 +40,7 @@ export const CarevigerPets = () => {
         const filteredData = data.filter(
           user =>
             user.TipoCuidador &&
-            user.TipoCuidador.trim().toLowerCase() === 'infantes',
+            user.TipoCuidador.trim().toLowerCase() === 'mascotas',
         );
         setFiltroMascotas(filteredData);
         setUsers(data);

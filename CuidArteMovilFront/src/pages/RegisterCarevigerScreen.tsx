@@ -88,27 +88,53 @@ export const RegisterCarevigerScreen = () => {
     }
   };
 
-  const handleSelectImage = () => {
-    launchImageLibrary(
-      {
+  const handleSelectImage = async () => {
+    try {
+      const response = await launchImageLibrary({
         mediaType: 'photo',
         maxWidth: 800,
         maxHeight: 800,
         quality: 0.8,
-      },
-      response => {
-        console.log('Respuesta de la galería:', response);
+      });
 
-        if (response.didCancel) {
-          console.log('El usuario canceló la selección');
-        } else if (response.errorCode) {
-          console.log('Error: ', response.errorMessage);
-        } else {
-          const uri = response.assets?.[0]?.uri ?? null;
+      console.log('Respuesta de la galería:', response);
+
+      if (response.didCancel) {
+        console.log('El usuario canceló la selección');
+        return;
+      }
+
+      if (response.errorCode) {
+        console.log('Error de la galería: ', response.errorMessage);
+        Alert.alert(
+          'Error',
+          'No se pudo seleccionar la imagen. Por favor, revisa los permisos.',
+        );
+        return;
+      }
+
+      if (response.assets && response.assets.length > 0) {
+        const uri = response.assets[0].uri;
+        if (uri) {
           setImageUri(uri);
+        } else {
+          console.log('URI de la imagen no válida');
+          Alert.alert(
+            'Error',
+            'La imagen seleccionada no tiene una URI válida.',
+          );
         }
-      },
-    );
+      } else {
+        console.log('No se seleccionó ningún asset');
+        Alert.alert('Error', 'No se pudo obtener la imagen seleccionada.');
+      }
+    } catch (error) {
+      console.error('Error al lanzar la galería:', error);
+      Alert.alert(
+        'Error',
+        'Ocurrió un error inesperado al acceder a la galería.',
+      );
+    }
   };
 
   const handleRegister = async () => {

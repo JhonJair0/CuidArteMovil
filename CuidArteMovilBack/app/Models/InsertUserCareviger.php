@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Hash;
 
 class insertUserCareviger extends Model
 {
-    protected $table = 'users_caregiver';
+    protected $table = 'users_client';
 
     protected $fillable = [
         'nombre',

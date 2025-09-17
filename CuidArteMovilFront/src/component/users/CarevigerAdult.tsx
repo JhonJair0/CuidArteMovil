@@ -42,6 +42,8 @@ export const CarevigerAdult = () => {
             user.TipoCuidador &&
             user.TipoCuidador.trim().toLowerCase() === 'adultos',
         );
+
+        console.log(response.data);
         setFiltroAdulto(filteredData);
         setUsers(data);
       } catch (e: any) {
@@ -85,7 +87,9 @@ export const CarevigerAdult = () => {
           <View style={CarevigerAdultStyle.inputContainer} key={user.id}>
             <View style={CarevigerAdultStyle.containerImg}>
               <Image
-                source={{ uri: user.fotoPerfil }}
+                source={{
+                  uri: user.fotoPerfil,
+                }}
                 style={CarevigerAdultStyle.upload}
                 resizeMode="cover"
               />

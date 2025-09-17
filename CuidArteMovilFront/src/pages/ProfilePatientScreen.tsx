@@ -50,10 +50,7 @@ export const ProfilePatientScreen = ({ route }: Props) => {
     );
   }
 
-  const imageSource =
-    user?.fotoPerfil && user.fotoPerfil.length > 0
-      ? { uri: user.fotoPerfil }
-      : require('../img/Logo-cuidarte.png');
+  console.log(user);
 
   return (
     <View style={ProfilePatientStyles.body}>
@@ -70,7 +67,7 @@ export const ProfilePatientScreen = ({ route }: Props) => {
         </Pressable>
 
         <Image
-          source={imageSource}
+          source={{ uri: user?.fotoPerfil }}
           style={ProfilePatientStyles.Logo}
           resizeMode="cover"
         />
