@@ -18,7 +18,6 @@ export const ProfilePatientStyles = StyleSheet.create({
 
   content: {
     width: 350,
-    height: 600,
     borderRadius: 30,
     backgroundColor: colors.white,
     padding: 20,

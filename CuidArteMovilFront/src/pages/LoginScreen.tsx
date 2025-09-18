@@ -1,11 +1,20 @@
 import React, { useContext, useState } from 'react';
-import { View, Text, TextInput, Pressable, Image, Alert } from 'react-native';
+import {
+  View,
+  Text,
+  TextInput,
+  Pressable,
+  Image,
+  Alert,
+  TouchableOpacity,
+} from 'react-native';
 import { styles } from '../theme/styleHome';
 import { loginStyles } from '../theme/styleLogin';
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParams } from '../navigation/NavigationStack';
 import { AuthContext } from '../context/AuthContext';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 type NavProps = StackNavigationProp<RootStackParams, 'Login'>;
 
@@ -22,6 +31,7 @@ export const LoginScreen = () => {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
 
   const HomePress = () => {
     navigation.navigate('Home');
@@ -64,21 +74,33 @@ export const LoginScreen = () => {
         </Pressable>
 
         <Text>Usuario de acceso</Text>
-
         <TextInput
           style={loginStyles.input}
           value={email}
           onChangeText={setEmail}
+          placeholder="Correo"
+          placeholderTextColor="#888"
         />
 
         <Text>Contraseña</Text>
-
-        <TextInput
-          style={loginStyles.input}
-          secureTextEntry
-          value={password}
-          onChangeText={setPassword}
-        />
+        <View style={loginStyles.passwordContainer}>
+          <TextInput
+            style={loginStyles.passwordInput}
+            secureTextEntry={!showPassword}
+            value={password}
+            onChangeText={setPassword}
+            placeholder="Contraseña"
+            placeholderTextColor="#888"
+          />
+          <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>
+            <Icon
+              name={showPassword ? 'eye-off' : 'eye'}
+              size={22}
+              color="#666"
+              style={{ marginRight: 10 }}
+            />
+          </TouchableOpacity>
+        </View>
 
         <Pressable onPress={handleLogin} style={loginStyles.buttonLogin}>
           <Text style={loginStyles.loginText}>Iniciar sesión</Text>

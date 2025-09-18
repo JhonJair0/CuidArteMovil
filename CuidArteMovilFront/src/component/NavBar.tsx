@@ -195,6 +195,19 @@ export const NavBar = () => {
               <Pressable onPress={HomePress} style={navBarStyles.sidebarItem}>
                 <Text style={navBarStyles.sidebarText}>Inicio</Text>
               </Pressable>
+              <Pressable
+                style={navBarStyles.sidebarItem}
+                onPress={RegisterPacientePress}
+              >
+                <Text style={navBarStyles.sidebarText}>Registrar paciente</Text>
+              </Pressable>
+
+              <Pressable
+                style={navBarStyles.sidebarItem}
+                onPress={RegisterCuidadorPress}
+              >
+                <Text style={navBarStyles.sidebarText}>Registrar Cuidador</Text>
+              </Pressable>
               {/* Aquí puedes añadir otras opciones públicas */}
             </>
           )}

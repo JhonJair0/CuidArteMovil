@@ -4,6 +4,7 @@ import axios from 'axios';
 import { BASE_URL } from '../../config/api';
 
 interface IAuthUser {
+  id: number;
   nombre: string;
   edad?: string;
   cedula: string;
@@ -28,6 +29,7 @@ interface IAuthContext {
   user: IAuthUser | null;
   login: (email: string, password: string) => Promise<boolean>;
   logout: () => Promise<void>;
+  setUser: React.Dispatch<React.SetStateAction<IAuthUser | null>>;
 }
 
 export const AuthContext = createContext<IAuthContext | null>(null);
@@ -40,7 +42,7 @@ interface AuthProviderProps {
 export const AuthProvider = ({ children }: AuthProviderProps) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [loading, setLoading] = useState(true);
-  const [user, setUser] = useState(null); // Almacena los datos del usuario aquí
+  const [user, setUser] = useState<IAuthUser | null>(null); // Almacena los datos del usuario aquí
 
   // Función para iniciar sesión (usada por el LoginScreen)
   const login = async (email: string, password: string) => {
@@ -103,7 +105,9 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ isLoggedIn, loading, user, login, logout }}>
+    <AuthContext.Provider
+      value={{ isLoggedIn, loading, user, login, logout, setUser }}
+    >
       {children}
     </AuthContext.Provider>
   );

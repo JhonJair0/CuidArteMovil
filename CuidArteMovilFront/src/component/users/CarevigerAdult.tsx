@@ -43,7 +43,6 @@ export const CarevigerAdult = () => {
             user.TipoCuidador.trim().toLowerCase() === 'adultos',
         );
 
-        console.log(response.data);
         setFiltroAdulto(filteredData);
         setUsers(data);
       } catch (e: any) {

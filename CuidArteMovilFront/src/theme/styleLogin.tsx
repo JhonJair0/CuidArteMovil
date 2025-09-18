@@ -61,4 +61,19 @@ export const loginStyles = StyleSheet.create({
     width: 50,
     height: 50,
   },
+
+  passwordContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: colors.navigation,
+    borderRadius: 100,
+    height: 45,
+    marginTop: 5,
+  },
+
+  passwordInput: {
+    flex: 1,
+    color: colors.text,
+    paddingHorizontal: 15,
+  },
 });

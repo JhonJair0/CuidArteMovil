@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet } from 'react-native';
 
 export const colors = {
   navigation: '#aca8f8',
@@ -13,7 +13,7 @@ export const RegisterPatientStyles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: colors.fondo
+    backgroundColor: colors.fondo,
   },
 
   contentRegister: {
@@ -35,19 +35,19 @@ export const RegisterPatientStyles = StyleSheet.create({
     width: 50,
     height: 100,
     position: 'absolute',
-    top: -25,
-    left: 125,
-    zIndex: 2
+    top: -28,
+    left: 50,
+    zIndex: 2,
   },
 
   inputContainer: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
   },
 
   inputColumn: {
-    width: '48%'
+    width: '48%',
   },
 
   input: {
@@ -74,7 +74,7 @@ export const RegisterPatientStyles = StyleSheet.create({
     paddingHorizontal: 20,
     borderRadius: 100,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
 
   RegisterText: {
@@ -97,13 +97,12 @@ export const RegisterPatientStyles = StyleSheet.create({
   },
 
   imageSelect: {
-    width: 125, 
+    width: 125,
     height: 125,
     borderRadius: 100,
-    position: 'absolute', 
-    top: -450, 
+    position: 'absolute',
+    top: -450,
     zIndex: 2,
-    left: 90
-  }
+    left: 90,
+  },
 });
-
