@@ -388,6 +388,7 @@ export const RegisterCarevigerScreen = () => {
                   style={RegisterCarevigerStyles.input}
                   value={formData.description}
                   onChangeText={text => handleChange('description', text)}
+                  multiline={true}
                 />
               </View>
             </View>

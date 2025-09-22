@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet } from 'react-native';
 
 export const colors = {
   navigation: '#aca8f8',
@@ -13,12 +13,12 @@ export const CarevigerAdultStyle = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: colors.fondo
+    backgroundColor: colors.fondo,
   },
 
   content: {
     width: 350,
-    height: 450,
+
     borderRadius: 30,
     backgroundColor: colors.white,
     padding: 20,
@@ -32,19 +32,19 @@ export const CarevigerAdultStyle = StyleSheet.create({
     backgroundColor: '#e5e7eb',
     flexDirection: 'row',
     alignItems: 'center',
-    paddingLeft: 10
+    padding: 10,
+    margin: 5,
   },
 
   containerImg: {
     borderRightWidth: 2,
-    borderColor: '#99a1af', 
+    borderColor: '#99a1af',
   },
 
   upload: {
     width: 85,
     height: 85,
     borderRadius: 100,
-    marginRight: 15
+    marginRight: 15,
   },
-
 });

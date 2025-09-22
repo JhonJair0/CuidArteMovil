@@ -15,12 +15,7 @@ class UserController extends Controller
 
     public function getAuthenticatedUser(Request $request)
     {
-        $user = $request->user();
-
-        // Construye la URL de la foto de perfil
-        if ($user->fotoPerfil) {
-            $user->fotoPerfil = asset( '/storage/' . $user->fotoPerfil);
-        }
+        $user = User::find($request->user()->id);
 
         return response()->json($user) ;
     }

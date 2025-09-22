@@ -31,17 +31,17 @@ class EditUserContoller extends Controller
 
     // Manejo de archivos
     if ($request->hasFile('fotoPerfil')) {
-        $path = $request->file('fotoPerfil')->store('perfil', 'public');
+        $path = $request->file('fotoPerfil')->store('fotos_perfil', 'public');
         $user->fotoPerfil = $path;
     }
 
     if ($request->hasFile('hojaVida')) {
-        $path = $request->file('hojaVida')->store('hojas_de_vida', 'public');
+        $path = $request->file('hojaVida')->store('hojas_vida_cuidador', 'public');
         $user->hojaVida = $path;
     }
 
     if ($request->hasFile('credenciales')) {
-        $path = $request->file('credenciales')->store('credenciales', 'public');
+        $path = $request->file('credenciales')->store('diplomas_Cuidador', 'public');
         $user->credenciales = $path;
     }
 

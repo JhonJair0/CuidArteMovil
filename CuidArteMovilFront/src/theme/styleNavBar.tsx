@@ -53,6 +53,7 @@ export const navBarStyles = StyleSheet.create({
     paddingVertical: 10,
     paddingHorizontal: 20,
     left: 100,
+    textAlign: 'center',
     top: 0,
   },
 

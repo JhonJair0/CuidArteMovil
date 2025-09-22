@@ -6,10 +6,10 @@ import { RegisterCarevigerScreen } from '../pages/RegisterCarevigerScreen';
 import { RegisterPatientScreen } from '../pages/RegisterPatientScreen';
 import { RecoverPassword } from '../component/RecoverPassword';
 import { ProfilePatientScreen } from '../pages/ProfilePatientScreen';
-import { ProfileCarevigerScreen } from '../pages/ProfileCarevigerSceen';
 import { CarevigerAdult } from '../component/users/CarevigerAdult';
 import { CarevigerKids } from '../component/users/CarevigerKids';
 import { CarevigerPets } from '../component/users/CarevigerPets';
+import { CaregiverProfile } from '../pages/CaregiverProfile';
 
 export type RootStackParams = {
   Home: undefined;
@@ -30,24 +30,9 @@ export type RootStackParams = {
       imageUri: string | null;
     };
   };
-  ProfileCarevigerScreen: {
-    caregiverData: {
-      fullName: string;
-      phone: string;
-      email: string;
-      address: string;
-      idCard: string;
-      department: string;
-      city: string;
-      password: string;
-      imageUri: string | null;
-      age: string;
-      studies: string;
-      experience: string;
-      description: string;
-      sheetLife: string | null;
-      certificate: string | null;
-    };
+  CaregiverProfile: {
+    caregiverId: number;
+    caregiver: Users;
   };
   CarevigerAdult: undefined;
 };
@@ -72,10 +57,8 @@ export const NavigationStack = () => {
         name="ProfilePatientScreen"
         component={ProfilePatientScreen}
       />
-      <Stack.Screen
-        name="ProfileCarevigerScreen"
-        component={ProfileCarevigerScreen}
-      />
+      <Stack.Screen name="CaregiverProfile" component={CaregiverProfile} />
+
       <Stack.Screen name="CarevigerAdult" component={CarevigerAdult} />
       <Stack.Screen name="CarevigerKids" component={CarevigerKids} />
       <Stack.Screen name="CarevigerPets" component={CarevigerPets} />

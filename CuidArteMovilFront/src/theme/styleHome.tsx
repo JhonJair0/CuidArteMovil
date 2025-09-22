@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet } from 'react-native';
 
 export const colors = {
   navigation: '#aca8f8',
@@ -13,7 +13,7 @@ export const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.fondo,
     paddingTop: 110,
-    paddingBottom: 20
+    paddingBottom: 20,
   },
 
   overlay: {
@@ -22,8 +22,19 @@ export const styles = StyleSheet.create({
   },
 
   contentCard: {
-    gap: 20,
-    top: 20
+    backgroundColor: colors.white,
+    gap: 15,
+    top: 15,
+    padding: 15,
+    borderRadius: 30,
+  },
+
+  container: {
+    width: 350,
+    borderRadius: 30,
+    backgroundColor: colors.white,
+    padding: 20,
+    justifyContent: 'space-around',
   },
 
   card: {
@@ -32,7 +43,7 @@ export const styles = StyleSheet.create({
     height: 330,
     borderRadius: 30,
     overflow: 'hidden',
-    position: 'relative'
+    position: 'relative',
   },
 
   cardContent: {
@@ -41,7 +52,6 @@ export const styles = StyleSheet.create({
     left: 15,
     right: 15,
   },
-
 
   cardTitle: {
     color: colors.white,
@@ -58,8 +68,6 @@ export const styles = StyleSheet.create({
   imgCard: {
     width: '100%',
     height: '100%',
-    borderRadius: 25
+    borderRadius: 25,
   },
-
-
 });

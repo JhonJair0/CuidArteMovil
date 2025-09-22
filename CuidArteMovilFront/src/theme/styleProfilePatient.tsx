@@ -29,6 +29,7 @@ export const ProfilePatientStyles = StyleSheet.create({
     height: 150,
     alignSelf: 'center',
     borderRadius: 100,
+    margin: 20,
   },
 
   upload: {

@@ -78,6 +78,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     const checkSession = async () => {
       try {
         const credentials = await Keychain.getGenericPassword();
+        console.log(credentials);
         if (credentials) {
           // Si el token existe, asume que está logueado
 
@@ -87,12 +88,16 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
             },
           });
 
+          // console.log(response.data);
+
           if (response.data) {
             setUser(response.data);
             setIsLoggedIn(true);
           } else {
             await logout();
           }
+        } else {
+          await logout();
         }
       } catch (error) {
         console.log('Error al obtener credenciales:', error);

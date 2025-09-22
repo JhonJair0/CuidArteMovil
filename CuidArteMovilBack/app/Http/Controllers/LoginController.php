@@ -29,6 +29,9 @@ class LoginController extends Controller
             // Si el login falla, devuelve una respuesta 401.
             return response()->json(['message' => 'Credenciales no válidas.'], 401);
         }
+        if ($user->fotoPerfil) {
+            $user->fotoPerfil = asset('/storage/' . $user->fotoPerfil);
+        }
 
         // Si el login es exitoso, crea el token y lo retorna con una respuesta 200.
         $token = $user->createToken('auth-token')->plainTextToken;
