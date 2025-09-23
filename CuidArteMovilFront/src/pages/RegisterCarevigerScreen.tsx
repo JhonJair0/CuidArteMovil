@@ -383,7 +383,7 @@ export const RegisterCarevigerScreen = () => {
               </View>
 
               <View style={{ width: '48%' }}>
-                <Text>Descripción</Text>
+                <Text>Describete</Text>
                 <TextInput
                   style={RegisterCarevigerStyles.input}
                   value={formData.description}

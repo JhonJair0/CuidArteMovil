@@ -78,7 +78,6 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     const checkSession = async () => {
       try {
         const credentials = await Keychain.getGenericPassword();
-        console.log(credentials);
         if (credentials) {
           // Si el token existe, asume que está logueado
 

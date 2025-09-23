@@ -53,7 +53,7 @@ export const CarevigerAdult = ({ route }: Props) => {
     if (!canOpenProfile) {
       Alert.alert(
         'Acceso denegado',
-        'Debes iniciar sesión para ver el perfil de cuidador.',
+        'Debes iniciar sesión para ver el perfil del cuidador.',
       );
       return;
     }
