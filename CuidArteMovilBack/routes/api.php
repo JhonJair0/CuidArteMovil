@@ -12,3 +12,4 @@ Route::post('/login', [LoginController::class, 'login'] );
 Route::middleware('auth:sanctum')->get('/user',[UserController::class, 'getAuthenticatedUser']);
 Route::get('/careviger', [UserController::class, 'getAllCareviger']);
 Route::post('/updateUser/{id}', [EditUserContoller::class, 'updateUser'] );
+Route::get('/carevigerData/{caregiverId}', [UserController::class, 'getDataCareviger']);

@@ -1,4 +1,13 @@
-import { Image, View, Text, StyleSheet, Alert, Pressable } from 'react-native';
+import {
+  Image,
+  View,
+  Text,
+  StyleSheet,
+  Alert,
+  Pressable,
+  ScrollView,
+  SafeAreaView,
+} from 'react-native';
 import { CarevigerAdultStyle } from '../../theme/styleCarevigerAdult';
 import { RouteProp, useNavigation } from '@react-navigation/native';
 import { NavBar } from '../NavBar';
@@ -116,42 +125,48 @@ export const CarevigerAdult = ({ route }: Props) => {
   }
 
   return (
-    <View style={CarevigerAdultStyle.body}>
+    // Envuelve todo en un SafeAreaView para manejar los márgenes de la pantalla
+    <SafeAreaView style={{ flex: 1 }}>
+      {/* El NavBar debe ser un componente separado y fijo en la parte superior */}
       <NavBar />
 
-      <View style={CarevigerAdultStyle.content}>
-        {filtroAdulto.map(user => (
-          <Pressable
-            key={user.id}
-            onPress={() => handlePress(user)}
-            android_ripple={{ color: '#ddd' }}
-            accessibilityRole="button"
-            style={getPressableStyle}
-          >
-            <View style={CarevigerAdultStyle.inputContainer} key={user.id}>
-              <View style={CarevigerAdultStyle.containerImg}>
-                <Image
-                  source={{
-                    uri: user.fotoPerfil,
-                  }}
-                  style={CarevigerAdultStyle.upload}
-                  resizeMode="cover"
-                />
-              </View>
+      {/* Usa un ScrollView para manejar el contenido que excede el tamaño de la pantalla */}
+      <ScrollView
+        style={CarevigerAdultStyle.body}
+        contentContainerStyle={CarevigerAdultStyle.contentContainer}
+      >
+        <View style={CarevigerAdultStyle.content}>
+          {filtroAdulto.map(user => (
+            <Pressable
+              key={user.id}
+              onPress={() => handlePress(user)}
+              android_ripple={{ color: '#ddd' }}
+              accessibilityRole="button"
+              style={getPressableStyle}
+            >
+              <View style={CarevigerAdultStyle.inputContainer}>
+                <View style={CarevigerAdultStyle.containerImg}>
+                  <Image
+                    source={{ uri: user.fotoPerfil }}
+                    style={CarevigerAdultStyle.upload}
+                    resizeMode="cover"
+                  />
+                </View>
 
-              <View style={{ flex: 1, left: 15 }}>
-                <Text style={{ fontWeight: 'bold', fontSize: 16 }}>
-                  {user.nombre}
-                </Text>
-                <Text style={{ fontSize: 14, color: '#555' }}>
-                  {user.descripcion}
-                </Text>
+                <View style={{ flex: 1, left: 15 }}>
+                  <Text style={{ fontWeight: 'bold', fontSize: 16 }}>
+                    {user.nombre}
+                  </Text>
+                  <Text style={{ fontSize: 14, color: '#555' }}>
+                    {user.descripcion}
+                  </Text>
+                </View>
               </View>
-            </View>
-          </Pressable>
-        ))}
-      </View>
-    </View>
+            </Pressable>
+          ))}
+        </View>
+      </ScrollView>
+    </SafeAreaView>
   );
 };
 const styles = StyleSheet.create({

@@ -95,7 +95,7 @@ export const NavBar = () => {
       {isLoggedIn && (
         <>
           <Text style={navBarStyles.text}>
-            {user ? user.nombre : 'Usuario'}!
+            {user ? user.nombre : 'Usuario'}
           </Text>
           <Pressable style={navBarStyles.button} onPress={logout}>
             <Text style={navBarStyles.buttonText}>Cerrar sesión</Text>
@@ -157,6 +157,25 @@ export const NavBar = () => {
             <>
               <Pressable
                 onPress={ProfilePatientPress}
+                style={navBarStyles.sidebarItem}
+              >
+                <Image
+                  source={require('../icon/persona.png')}
+                  style={navBarStyles.sidebarItemIcon}
+                  resizeMode="contain"
+                />
+                <Text style={navBarStyles.sidebarText}>Perfil</Text>
+              </Pressable>
+              <Pressable onPress={logout} style={navBarStyles.sidebarItem}>
+                <Image
+                  source={require('../icon/X.png')}
+                  style={navBarStyles.sidebarItemIcon}
+                  resizeMode="contain"
+                />
+                <Text style={navBarStyles.sidebarText}>Cerrar Sesión</Text>
+              </Pressable>
+              <Pressable
+                onPress={HomePress}
                 style={[
                   navBarStyles.sidebarItem,
                   {
@@ -167,12 +186,13 @@ export const NavBar = () => {
                 ]}
               >
                 <Image
-                  source={require('../icon/persona.png')}
+                  source={require('../icon/flecha-izquierda.png')}
                   style={navBarStyles.sidebarItemIcon}
                   resizeMode="contain"
                 />
-                <Text style={navBarStyles.sidebarText}>Perfil</Text>
+                <Text style={navBarStyles.sidebarText}>Inicio</Text>
               </Pressable>
+
               <Pressable
                 onPress={ProfileCarevigerPress}
                 style={[navBarStyles.sidebarItem, { top: 10 }]}
@@ -183,9 +203,6 @@ export const NavBar = () => {
                   resizeMode="contain"
                 />
                 <Text style={navBarStyles.sidebarText}>Configuración</Text>
-              </Pressable>
-              <Pressable onPress={logout} style={navBarStyles.sidebarItem}>
-                <Text style={navBarStyles.sidebarText}>Cerrar Sesión</Text>
               </Pressable>
             </>
           )}

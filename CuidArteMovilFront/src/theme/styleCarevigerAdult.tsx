@@ -11,18 +11,22 @@ export const colors = {
 export const CarevigerAdultStyle = StyleSheet.create({
   body: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
     backgroundColor: colors.fondo,
   },
 
   content: {
-    width: 350,
-
+    width: '90%',
+    alignSelf: 'center',
     borderRadius: 30,
     backgroundColor: colors.white,
+    alignItems: 'center',
     padding: 20,
-    justifyContent: 'space-around',
+  },
+
+  contentContainer: {
+    flexGrow: 1, // Permite que el contenido se expanda
+    justifyContent: 'center', // Centra verticalmente el contenido
+    alignItems: 'center', // Centra horizontalmente el contenido
   },
 
   inputContainer: {

@@ -36,4 +36,9 @@ class UserController extends Controller
         // Devolver la respuesta JSON con las URLs completas
         return response()->json($user);
     }
+
+    public function getDataCareviger($caregiverId){
+        $careviger = User::where('id', $caregiverId)->get();
+        return $careviger;
+    }
 }
