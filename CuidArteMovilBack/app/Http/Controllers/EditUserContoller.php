@@ -46,6 +46,9 @@ class EditUserContoller extends Controller
     }
 
     $user->save();
+        if ($user->fotoPerfil) {
+             $user->fotoPerfil = asset( '/storage/' . $user->fotoPerfil);
+        }
 
     return response()->json($user);
     }

@@ -68,7 +68,7 @@ class RegisterController extends Controller
             'age'              => 'required|string|max:255',
             'experience'       => 'required|string|max:255',
             'studies'          => 'required|string|max:255',
-            'description'       => 'required|string|max:255',
+            'description'       => 'required|string|min:256|max:1024',
             'sheetLife'          => 'required|file|mimes:pdf|max:2048',
             'certificate'          => 'required|file|mimes:pdf|max:2048',
             'image'        => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',

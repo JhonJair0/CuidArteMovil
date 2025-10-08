@@ -11,7 +11,7 @@ export const colors = {
 export const navBarStyles = StyleSheet.create({
   navBar: {
     backgroundColor: colors.navigation,
-    height: 102,
+    // height: 102,
     width: '100%',
     borderBottomWidth: 2,
     borderBottomColor: colors.botton,

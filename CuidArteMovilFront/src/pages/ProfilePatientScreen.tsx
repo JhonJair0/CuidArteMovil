@@ -19,6 +19,7 @@ import { AuthContext } from '../context/AuthContext';
 import { BASE_URL } from '../../config/api';
 import { RegisterPatientStyles } from '../theme/styleRegisterPatient';
 import { pick, types } from '@react-native-documents/picker';
+import * as Keychain from 'react-native-keychain';
 import axios from 'axios';
 
 type NavProps = StackNavigationProp<RootStackParams, 'ProfilePatientScreen'>;
@@ -158,7 +159,7 @@ export const ProfilePatientScreen = ({ route }: Props) => {
         },
       );
 
-      // axios ya da directamente los datos en response.data
+      navigation.navigate('Home');
       setUser(response.data);
       Alert.alert('Éxito', 'Usuario actualizado correctamente');
     } catch (error: any) {
